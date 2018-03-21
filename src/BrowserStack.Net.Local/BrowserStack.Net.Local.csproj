@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/colombod/browserstack_dotnet/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/colombod/browserstack_dotnet</RepositoryUrl>
+    <Company>Diego Colombo</Company>
+    <Authors>Diego Colombo</Authors>
+    <Product>BrowserStack</Product>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageIconUrl>https://github.com/colombod/browserstack_dotnet/blob/master/browserstack-logo.png</PackageIconUrl>
+    <Copyright>2018</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
