@@ -9,7 +9,7 @@
     <Product>BrowserStack</Product>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageIconUrl>https://github.com/colombod/browserstack_dotnet/blob/master/browserstack-logo.png</PackageIconUrl>
+    <PackageIconUrl>https://github.com/colombod/browserstack_dotnet/blob/master/browserstack-logo.png?raw=true</PackageIconUrl>
     <Copyright>2018</Copyright>
   </PropertyGroup>
 

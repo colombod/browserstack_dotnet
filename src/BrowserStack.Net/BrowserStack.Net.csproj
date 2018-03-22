@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/colombod/browserstack_dotnet</RepositoryUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Copyright>2018</Copyright>
-    <PackageIconUrl>https://github.com/colombod/browserstack_dotnet/blob/master/browserstack-logo.png</PackageIconUrl>
+    <PackageIconUrl>https://github.com/colombod/browserstack_dotnet/blob/master/browserstack-logo.png?raw=true</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
