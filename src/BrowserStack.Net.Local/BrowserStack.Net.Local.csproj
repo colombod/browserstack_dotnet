@@ -11,6 +11,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIconUrl>https://github.com/colombod/browserstack_dotnet/blob/master/browserstack-logo.png?raw=true</PackageIconUrl>
     <Copyright>2018</Copyright>
+    <PackageTags>QA Automation</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

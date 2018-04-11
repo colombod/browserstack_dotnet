@@ -1,2 +1,2 @@
 # browserstack_dotnet
-BrowserStack binding and utilities for .net platform
+[Browserstack](https://www.browserstack.com) binding and utilities for .net platform
