@@ -21,7 +21,7 @@ namespace BrowserStack.Net
             clone.SetCapability("project", project?? string.Empty);
             clone.SetCapability("build", build ?? string.Empty);
             clone.SetCapability("name", name ?? string.Empty);
-            return capabilities;
+            return clone;
         }
 
         public static DesiredCapabilities SetupDedug(this DesiredCapabilities capabilities, bool isEnable = false, BrowserStackConsoleLogLevel logLevel = BrowserStackConsoleLogLevel.Errors)
@@ -77,9 +77,10 @@ namespace BrowserStack.Net
 
         public static DesiredCapabilities SetupForLocalBridge(this DesiredCapabilities capabilities, string identifier)
         {
-            capabilities.SetCapability("browserstack.local", "true");
-            capabilities.SetCapability("browserstack.localIdentifier", identifier);
-            return capabilities;
+            var clone = new DesiredCapabilities(capabilities.ToDictionary());
+            clone.SetCapability("browserstack.local", "true");
+            clone.SetCapability("browserstack.localIdentifier", identifier);
+            return clone;
         }
 
         public static DesiredCapabilities SetupKey(this DesiredCapabilities capabilities, string key)
