@@ -8,44 +8,48 @@ namespace BrowserStack.Net
     {
         public static DesiredCapabilities SetupDefaults(this DesiredCapabilities capabilities)
         {
-            capabilities.SetCapability("os", "Windows");
-            capabilities.SetCapability("os_version", "10");
-            capabilities.SetCapability("resolution", "1024x768");
-
-            return capabilities.SetupDedug(true, BrowserStackConsoleLogLevel.Info);
+            var clone = new DesiredCapabilities(capabilities.ToDictionary());
+            clone.SetCapability("os", "Windows");
+            clone.SetCapability("os_version", "10");
+            clone.SetCapability("resolution", "1024x768");
+            return clone.SetupDedug(true, BrowserStackConsoleLogLevel.Info);
         }
 
         public static DesiredCapabilities SetupTestDetails(this DesiredCapabilities capabilities, string project = "", string build = "", [CallerMemberName]string name = null)
         {
-            
-            capabilities.SetCapability("project", project?? string.Empty);
-            capabilities.SetCapability("build", build ?? string.Empty);
-            capabilities.SetCapability("name", name ?? string.Empty);
+            var clone = new DesiredCapabilities(capabilities.ToDictionary());
+            clone.SetCapability("project", project?? string.Empty);
+            clone.SetCapability("build", build ?? string.Empty);
+            clone.SetCapability("name", name ?? string.Empty);
             return capabilities;
         }
 
         public static DesiredCapabilities SetupDedug(this DesiredCapabilities capabilities, bool isEnable = false, BrowserStackConsoleLogLevel logLevel = BrowserStackConsoleLogLevel.Errors)
         {
-            capabilities.SetCapability("browserstack.debug", isEnable.ToString().ToLower());
-            capabilities.SetCapability("browserstack.console", logLevel.ToString().ToLower());
-            return capabilities;
+            var clone = new DesiredCapabilities(capabilities.ToDictionary());
+            clone.SetCapability("browserstack.debug", isEnable.ToString().ToLower());
+            clone.SetCapability("browserstack.console", logLevel.ToString().ToLower());
+            return clone;
         }
 
         public static DesiredCapabilities SetBrowserVersion(this DesiredCapabilities capabilities, int version)
         {
-            capabilities.SetCapability("browser_version", version.ToString("N0"));
-            return capabilities;
+            var clone = new DesiredCapabilities(capabilities.ToDictionary());
+            clone.SetCapability("browser_version", version.ToString("N0"));
+            return clone;
         }
 
         public static DesiredCapabilities SetBrowser(this DesiredCapabilities capabilities, BrowserStackSupportedBrowsers browser)
         {
-            capabilities.SetCapability("browser", browser.ToString().Replace("_", " "));
-            return capabilities;
+            var clone = new DesiredCapabilities(capabilities.ToDictionary());
+            clone.SetCapability("browser", browser.ToString().Replace("_", " "));
+            return clone;
         }
 
         public static DesiredCapabilities SetupChrome(this DesiredCapabilities capabilities, int version = 64, bool enableMixedContent = false)
         {
-            capabilities
+            var clone = new DesiredCapabilities(capabilities.ToDictionary());
+            clone
                 .SetBrowser(BrowserStackSupportedBrowsers.chrome)
                 .SetBrowserVersion(version);
 
@@ -56,16 +60,17 @@ namespace BrowserStack.Net
 
                 options.AddArgument("--disable-web-security");
                 options.AddArgument("--allow-running-insecure-content");
-                capabilities.SetCapability(ChromeOptions.Capability, options);
+                clone.SetCapability(ChromeOptions.Capability, options);
             }
 
-            return capabilities;
+            return clone;
 
         }
 
         public static DesiredCapabilities SetupEdge(this DesiredCapabilities capabilities, int version = 16)
         {
-           return  capabilities
+            var clone = new DesiredCapabilities(capabilities.ToDictionary());
+            return clone
                 .SetBrowser(BrowserStackSupportedBrowsers.edge)
                 .SetBrowserVersion(version);
         }
@@ -79,14 +84,16 @@ namespace BrowserStack.Net
 
         public static DesiredCapabilities SetupKey(this DesiredCapabilities capabilities, string key)
         {
-            capabilities.SetCapability("browserstack.key", key);
-            return capabilities;
+            var clone = new DesiredCapabilities(capabilities.ToDictionary());
+            clone.SetCapability("browserstack.key", key);
+            return clone;
         }
 
         public static DesiredCapabilities SetupUser(this DesiredCapabilities capabilities, string user)
         {
-            capabilities.SetCapability("browserstack.user", user);
-            return capabilities;
+            var clone = new DesiredCapabilities(capabilities.ToDictionary());
+            clone.SetCapability("browserstack.user", user);
+            return clone;
         }
     }
 }

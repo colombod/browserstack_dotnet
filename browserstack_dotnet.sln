@@ -5,11 +5,13 @@ VisualStudioVersion = 15.0.27428.2011
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrowserStack.Net", "src\BrowserStack.Net\BrowserStack.Net.csproj", "{CD24C5DB-4E84-4690-9DC7-47CE8756F79C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrowserStack.Net.Local", "src\BrowserStack.Net.Local\BrowserStack.Net.Local.csproj", "{E05D1E6E-4F00-481B-AD71-D7B33A03D83A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrowserStack.Net.Local", "src\BrowserStack.Net.Local\BrowserStack.Net.Local.csproj", "{E05D1E6E-4F00-481B-AD71-D7B33A03D83A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{57B9967F-EA03-4BB2-B2A8-650A39F1CA0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrowserStack.Net.Local.Tests", "test\BrowserStack.Net.Local.Tests\BrowserStack.Net.Local.Tests.csproj", "{40FB913A-CF59-40F7-9E87-F9C494586FF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrowserStack.Net.Local.Tests", "test\BrowserStack.Net.Local.Tests\BrowserStack.Net.Local.Tests.csproj", "{40FB913A-CF59-40F7-9E87-F9C494586FF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrowserStack.Net.Tests", "BrowserStack.Net.Tests\BrowserStack.Net.Tests.csproj", "{BFC599A6-A51E-4C4B-A7F2-B0872C15D8DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +31,17 @@ Global
 		{40FB913A-CF59-40F7-9E87-F9C494586FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40FB913A-CF59-40F7-9E87-F9C494586FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40FB913A-CF59-40F7-9E87-F9C494586FF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFC599A6-A51E-4C4B-A7F2-B0872C15D8DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFC599A6-A51E-4C4B-A7F2-B0872C15D8DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFC599A6-A51E-4C4B-A7F2-B0872C15D8DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC599A6-A51E-4C4B-A7F2-B0872C15D8DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{40FB913A-CF59-40F7-9E87-F9C494586FF5} = {57B9967F-EA03-4BB2-B2A8-650A39F1CA0C}
+		{BFC599A6-A51E-4C4B-A7F2-B0872C15D8DA} = {57B9967F-EA03-4BB2-B2A8-650A39F1CA0C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FB4F16DC-952D-49C9-A901-3FB8A358B809}
