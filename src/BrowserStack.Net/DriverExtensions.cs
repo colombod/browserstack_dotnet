@@ -9,6 +9,25 @@ namespace BrowserStack.Net
 {
     public static class DriverExtensions
     {
+        public static void PerformKeyChord(this IWebDriver driver, params string[] keys)
+        {
+            if (keys == null || keys.Length <= 0) return;
+
+            var action = new Actions(driver);
+            for (var i = 0; i < keys.Length - 1; i++)
+            {
+                action = action.KeyDown(keys[i]);
+            }
+
+            action = action.SendKeys(keys[keys.Length - 1]);
+
+            for (var i = keys.Length - 2; i >= 0; i--)
+            {
+                action = action.KeyUp(keys[i]);
+            }
+            action.Perform();
+        }
+
         public static void PerformKeyStrokes(this IWebDriver driver, string keys)
         {
             var a = new Actions(driver);
