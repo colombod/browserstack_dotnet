@@ -20,52 +20,35 @@ namespace BrowserStack.Net
             var a = new Actions(driver);
             a.MoveToElement(element).Click().Perform();
         }
-
-        public static IWebElement FindEditor(this IWebDriver driver)
-        {
-            return driver.FindElement(By.ClassName("monaco-editor"));
-        }
-
-        public static IWebElement SwitchToFrameAndFindEditor(this IWebDriver driver, int frameIndex)
-        {
-            driver.SwitchTo().Frame(frameIndex);
-            return driver.FindEditor();
-        }
-
-        public static IWebElement SwitchToFrameAndFindEditor(this IWebDriver driver, IWebElement frame)
-        {
-            driver.SwitchTo().Frame(frame);
-            return driver.FindEditor();
-        }
       
-        public static void PostMessage(this IWebDriver driver, int frameIndex, string origin, string message)
+        public static void PostMessageToIFrame(this IWebDriver driver, int frameIndex, string origin, string message)
         {
             driver.ExecuteJavaScript($"document.getElementsByTagName('iframe')[{frameIndex}].contentWindow.postMessage({message}, \"{origin}\");");
         }
 
-        public static void PostMessage(this IWebDriver driver, int frameIndex, string origin, JObject message)
+        public static void PostMessageToIFrame(this IWebDriver driver, int frameIndex, string origin, JObject message)
         {
-            driver.PostMessage(frameIndex, origin, message.ToString(Formatting.None));
+            driver.PostMessageToIFrame(frameIndex, origin, message.ToString(Formatting.None));
         }
 
-        public static void PostMessage<T>(this IWebDriver driver, int frameIndex, string origin, T message)
+        public static void PostMessageToIFrame<T>(this IWebDriver driver, int frameIndex, string origin, T message)
         {
-            driver.PostMessage(frameIndex, origin, JsonConvert.SerializeObject(message));
+            driver.PostMessageToIFrame(frameIndex, origin, JsonConvert.SerializeObject(message));
         }
 
-        public static void PostMessage(this IWebDriver driver, int frameIndex, Uri origin, string message)
+        public static void PostMessageToIFrame(this IWebDriver driver, int frameIndex, Uri origin, string message)
         {
-            driver.PostMessage(frameIndex, origin.ToString(), message);
+            driver.PostMessageToIFrame(frameIndex, origin.ToString(), message);
         }
 
-        public static void PostMessage(this IWebDriver driver, int frameIndex, Uri origin, JObject message)
+        public static void PostMessageToIFrame(this IWebDriver driver, int frameIndex, Uri origin, JObject message)
         {
-            driver.PostMessage(frameIndex, origin, message.ToString(Formatting.None));
+            driver.PostMessageToIFrame(frameIndex, origin, message.ToString(Formatting.None));
         }
 
-        public static void PostMessage<T>(this IWebDriver driver, int frameIndex, Uri origin, T message)
+        public static void PostMessageToIFrame<T>(this IWebDriver driver, int frameIndex, Uri origin, T message)
         {
-            driver.PostMessage(frameIndex, origin, JsonConvert.SerializeObject(message));
+            driver.PostMessageToIFrame(frameIndex, origin, JsonConvert.SerializeObject(message));
         }
     }
 }
