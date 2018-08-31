@@ -50,9 +50,9 @@ namespace BrowserStack.Net
             driver.PostMessageToIFrame(frameIndex, origin, message.ToString(Formatting.None));
         }
 
-        public static void PostMessageToIFrame<T>(this IWebDriver driver, int frameIndex, string origin, T message)
+        public static void PostMessageToIFrame<T>(this IWebDriver driver, int frameIndex, string origin, T message, JsonSerializerSettings serializerSettings = null)
         {
-            driver.PostMessageToIFrame(frameIndex, origin, JsonConvert.SerializeObject(message));
+            driver.PostMessageToIFrame(frameIndex, origin, serializerSettings != null ? JsonConvert.SerializeObject(message, serializerSettings) : JsonConvert.SerializeObject(message));
         }
 
         public static void PostMessageToIFrame(this IWebDriver driver, int frameIndex, Uri origin, string message)
@@ -65,9 +65,9 @@ namespace BrowserStack.Net
             driver.PostMessageToIFrame(frameIndex, origin, message.ToString(Formatting.None));
         }
 
-        public static void PostMessageToIFrame<T>(this IWebDriver driver, int frameIndex, Uri origin, T message)
+        public static void PostMessageToIFrame<T>(this IWebDriver driver, int frameIndex, Uri origin, T message, JsonSerializerSettings serializerSettings = null)
         {
-            driver.PostMessageToIFrame(frameIndex, origin, JsonConvert.SerializeObject(message));
+            driver.PostMessageToIFrame(frameIndex, origin, serializerSettings!= null ? JsonConvert.SerializeObject(message, serializerSettings): JsonConvert.SerializeObject(message));
         }
     }
 }
