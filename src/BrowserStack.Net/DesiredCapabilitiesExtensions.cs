@@ -96,5 +96,12 @@ namespace BrowserStack.Net
             clone.SetCapability("browserstack.user", user);
             return clone;
         }
+
+        public static DesiredCapabilities SetResolution(this DesiredCapabilities capabilities, int width, int height)
+        {
+            var clone = new DesiredCapabilities(capabilities.ToDictionary());
+            clone.SetCapability("resolution", $"{width}x{height}");
+            return clone;
+        }
     }
 }
