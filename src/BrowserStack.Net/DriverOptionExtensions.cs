@@ -194,34 +194,40 @@ namespace BrowserStack.Net
             return options;
         }
 
-        public static DriverOptions SetupTestDetails(this DriverOptions options, string project = "", string build = "", [CallerMemberName]string name = null)
+        public static DriverOptions SetupTestDetails(this DriverOptions options, string project = "", string build = "", string label = "", [CallerMemberName]string name = null)
         {
+            var testName = name ?? string.Empty;
+            if (!string.IsNullOrWhiteSpace(label))
+            {
+                testName = string.IsNullOrWhiteSpace(testName) ? label : $"{testName} [{label}]";
+            }
+
             switch (options)
             {
                 case ChromeOptions co:
                     co.AddAdditionalCapability("project", project ?? string.Empty, true);
                     co.AddAdditionalCapability("build", build ?? string.Empty, true);
-                    co.AddAdditionalCapability("name", name ?? string.Empty, true);
+                    co.AddAdditionalCapability("name", testName, true);
                     break;
                 case FirefoxOptions fo:
                     fo.AddAdditionalCapability("project", project ?? string.Empty, true);
                     fo.AddAdditionalCapability("build", build ?? string.Empty, true);
-                    fo.AddAdditionalCapability("name", name ?? string.Empty, true);
+                    fo.AddAdditionalCapability("name", testName, true);
                     break;
                 case OperaOptions oo:
                     oo.AddAdditionalCapability("project", project ?? string.Empty, true);
                     oo.AddAdditionalCapability("build", build ?? string.Empty, true);
-                    oo.AddAdditionalCapability("name", name ?? string.Empty, true);
+                    oo.AddAdditionalCapability("name", testName, true);
                     break;
                 case InternetExplorerOptions ieo:
                     ieo.AddAdditionalCapability("project", project ?? string.Empty, true);
                     ieo.AddAdditionalCapability("build", build ?? string.Empty, true);
-                    ieo.AddAdditionalCapability("name", name ?? string.Empty, true);
+                    ieo.AddAdditionalCapability("name", testName, true);
                     break;
                 default:
                     options.AddAdditionalCapability("project", project ?? string.Empty);
                     options.AddAdditionalCapability("build", build ?? string.Empty);
-                    options.AddAdditionalCapability("name", name ?? string.Empty);
+                    options.AddAdditionalCapability("name", testName);
                     break;
             }
             return options;
