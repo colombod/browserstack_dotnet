@@ -37,7 +37,8 @@ namespace BrowserStack.Net.Tests
         {
             var options = DriverOptionFactory.Setup(browser);
             options.SetupDefaults();
-            options.SetupBrowserStackAuth("user", "key");
+            options.SetupBrowserStackAuth("user", "key")
+                .SetupTestDetails("project", "build", "name");
 
             var cap = options.ToCapabilities();
             cap.HasCapability("browserstack.user").Should().BeTrue();
@@ -48,6 +49,10 @@ namespace BrowserStack.Net.Tests
             cap.HasCapability("os").Should().BeTrue();
             cap.HasCapability("os_version").Should().BeTrue();
             cap.HasCapability("resolution").Should().BeTrue();
+
+            cap.HasCapability("project").Should().BeTrue();
+            cap.HasCapability("build").Should().BeTrue();
+            cap.HasCapability("name").Should().BeTrue();
 
         }
     }
